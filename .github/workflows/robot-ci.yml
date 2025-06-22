@@ -1,0 +1,38 @@
+name: Robot Framework API CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install Robot Framework and dependencies
+        run: |
+          pip install robotframework
+          pip install robotframework-requests
+
+      - name: Run Robot Framework API tests
+        run: robot tests/
+
+      - name: Upload Robot Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: robot-report
+          path: |
+            report.html
+            log.html
+            output.xml
