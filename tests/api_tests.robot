@@ -1,7 +1,7 @@
 *** Settings ***
 Library           RequestsLibrary
 Library           Collections
-Library    RobotframeworkRequests
+Library    RequestsLibrary
 
 *** Variables ***
 ${BASE_URL}       https://jsonplaceholder.typicode.com

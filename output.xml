@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3 (Python 3.13.2 on win32)" generated="2025-06-22T21:04:18.385663" rpa="false" schemaversion="5">
+<suite id="s1" name="Robotframework-Api-Test" source="C:\Users\SNC CBS\Downloads\robotframework-api-test\robotframework-api-test">
+<suite id="s1-s1" name="Tests" source="C:\Users\SNC CBS\Downloads\robotframework-api-test\robotframework-api-test\tests">
+<suite id="s1-s1-s1" name="Api Tests" source="C:\Users\SNC CBS\Downloads\robotframework-api-test\robotframework-api-test\tests\api_tests.robot">
+<test id="s1-s1-s1-t1" name="Get A Post By ID" line="10">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-06-22T21:04:18.999786" level="INFO">Creating Session using : alias=jsonplaceholder, url=https://jsonplaceholder.typicode.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>jsonplaceholder</arg>
+<arg>${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-06-22T21:04:18.999079" elapsed="0.000995"/>
+</kw>
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2025-06-22T21:04:19.002785" level="FAIL">MissingSchema: Invalid URL 'jsonplaceholder': No scheme supplied. Perhaps you meant https://jsonplaceholder?</msg>
+<var>${response}</var>
+<arg>jsonplaceholder</arg>
+<arg>/posts/1</arg>
+<doc>Sends a GET request.</doc>
+<status status="FAIL" start="2025-06-22T21:04:19.000608" elapsed="0.009003">MissingSchema: Invalid URL 'jsonplaceholder': No scheme supplied. Perhaps you meant https://jsonplaceholder?</status>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="NOT RUN" start="2025-06-22T21:04:19.010114" elapsed="0.000031"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${response.json()}</arg>
+<arg>id</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="NOT RUN" start="2025-06-22T21:04:19.010517" elapsed="0.000023"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-06-22T21:04:19.010934" elapsed="0.000025"/>
+</kw>
+<status status="FAIL" start="2025-06-22T21:04:18.997027" elapsed="0.014412">MissingSchema: Invalid URL 'jsonplaceholder': No scheme supplied. Perhaps you meant https://jsonplaceholder?</status>
+</test>
+<status status="FAIL" start="2025-06-22T21:04:18.422723" elapsed="0.590138"/>
+</suite>
+<status status="FAIL" start="2025-06-22T21:04:18.421402" elapsed="0.594365"/>
+</suite>
+<status status="FAIL" start="2025-06-22T21:04:18.388474" elapsed="0.628865"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Robotframework-Api-Test" id="s1" pass="0" fail="1" skip="0">Robotframework-Api-Test</stat>
+<stat name="Tests" id="s1-s1" pass="0" fail="1" skip="0">Robotframework-Api-Test.Tests</stat>
+<stat name="Api Tests" id="s1-s1-s1" pass="0" fail="1" skip="0">Robotframework-Api-Test.Tests.Api Tests</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-06-22T21:04:18.994730" level="ERROR">Error in file 'C:\Users\SNC CBS\Downloads\robotframework-api-test\robotframework-api-test\tests\api_tests.robot' on line 4: Importing library 'RobotframeworkRequests' failed: ModuleNotFoundError: No module named 'RobotframeworkRequests'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Users\SNC CBS\Downloads\robotframework-api-test\robotframework-api-test
+  C:\Users\SNC CBS\Downloads\robotframework-api-test\robotframework-api-test
+  C:\Users\SNC CBS\AppData\Local\Programs\Python\Python313\python313.zip
+  C:\Users\SNC CBS\AppData\Local\Programs\Python\Python313\DLLs
+  C:\Users\SNC CBS\AppData\Local\Programs\Python\Python313\Lib
+  C:\Users\SNC CBS\AppData\Local\Programs\Python\Python313
+  C:\Users\SNC CBS\AppData\Local\Programs\Python\Python313\Lib\site-packages
+  C:\Users\SNC CBS\AppData\Local\Programs\Python\Python313\Lib\site-packages\win32
+  C:\Users\SNC CBS\AppData\Local\Programs\Python\Python313\Lib\site-packages\win32\lib
+  C:\Users\SNC CBS\AppData\Local\Programs\Python\Python313\Lib\site-packages\Pythonwin</msg>
+</errors>
+</robot>
